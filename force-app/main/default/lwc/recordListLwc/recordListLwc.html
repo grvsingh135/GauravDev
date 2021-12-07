@@ -1,0 +1,70 @@
+<template>
+    <lightning-card> 
+        <div class="slds-m-around_medium"> 
+            <template if:false= {noRecordsFound}>
+                <template if:false={bShowModal}>
+                    <lightning-input type="search" onchange={findRecordResult} class = "slds-m-bottom_small"> </lightning-input>
+                    <lightning-button label="Select Records" onclick={showSelectedRecord} variant="brand"></lightning-button>
+                    <p class="slds-m-vertical_medium content">Total Selected records: <b>{totalSelectedRecords} </b></p>
+                </template>
+            </template>
+            
+                <div class="slds-m-around_medium">
+                    <template if:false= {noRecordsFound}>
+                        <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate">
+                                            <lightning-input onchange={allSelected} type="checkbox"></lightning-input>
+                                        </div>
+                                    </th>
+                                    <template for:each={olicolumns} for:item="olicoldta">
+                                        <th class="" scope="col" key={olicoldta.Id}>
+                                            <div class="slds-truncate" title={olicoldta.label}>{olicoldta.label}</div>
+                                        </th>
+                                    </template>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <!--iterate all contact records using for-each iteration -->    
+                                <template for:each={recordList} for:item="recorddata">
+                                    <tr class="slds-hint-parent" key={recorddata.Id}>
+                                        <td>
+                                            <div>
+                                                <lightning-input type="checkbox" onchange={handleCheckbox} value={recorddata.Name}  checked={recorddata.isChecked} data-id={recorddata.Id}  data-phone={recorddata.Phone} data-type={recorddata.Type} data-industry={recorddata.Industry} ></lightning-input>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="slds-truncate">{recorddata.Name}</div>
+                                        </td>
+                                        <td>
+                                            <div class="slds-truncate">{recorddata.Phone}</div>
+                                        </td>
+                                        <td>
+                                            <div class="slds-truncate">
+                                                <div class="slds-truncate">{recorddata.Type}</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="slds-truncate">{recorddata.Industry}</div>
+                                            </td>
+                                        
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </template>
+                    <template if:false= {noRecordsFound}>
+                        <p class="slds-m-vertical_medium content">Total records: <b>{totalrecords} </b> Page <b>{currentpage}</b> of  
+                            <b> {totalpages}</b></p> 
+                    </template>
+                    
+                    <template if:true= {noRecordsFound}>
+                        --No Records Found--
+                    </template>
+                </div>
+        </div>
+    </lightning-card>
+    </template>

@@ -1,0 +1,24 @@
+<template>
+<table>
+    <thead>
+        <th>S. No.</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{serialNumber}</td>
+            <td>
+                <lightning-input value={name} type="text"></lightning-input>
+            </td>
+            <td>
+                <lightning-button label="Addnew" onclick={AddNewRow}></lightning-button>
+            </td>
+            <td>
+                <lightning-button label="DeleteRow" onclick={DeleteRow}></lightning-button>
+            </td>
+    </tr>
+      
+
+    </tbody>
+</table>
+    
+</template>

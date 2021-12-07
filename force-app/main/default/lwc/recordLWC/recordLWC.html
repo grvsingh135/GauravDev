@@ -1,0 +1,12 @@
+<template>  
+    <lightning-card>  
+      <c-record-list-lwc objectname={objectName} objectrecordid={objectRecordId} currentpage={page} onrecordsload={handleRecordsLoad} pagesize={pagesize} oncloseloadmodal={handleCloseModel}></c-record-list-lwc>  
+      <template if:true={totalrecords}>
+        <div class="slds-m-around_medium">        
+          <c-paginator-bottom onprevious={handlePrevious} onnext={handleNext} onfirst={handleFirst}  
+            onlast={handleLast} currentpage={page} totalrecords={totalrecords} pagesize={pagesize}>  
+          </c-paginator-bottom>  
+        </div>  
+      </template>
+    </lightning-card>  
+  </template>

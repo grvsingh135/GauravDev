@@ -1,0 +1,38 @@
+<template>
+    <div>
+      
+            <lightning-progress-indicator  current-step={selectedStep} variant="base">
+                <lightning-progress-step label="Search Supplier" onstepfocus={selectStep1} value="1">
+                    search supplier
+                </lightning-progress-step>
+                <lightning-progress-step label="Add Offers" onstepfocus={selectStep2} value="2">
+                    select offers
+                </lightning-progress-step>
+                <lightning-progress-step label="Enter SalesPrice" onstepfocus={selectStep3} value="3">
+                    enter salesprice
+                </lightning-progress-step>
+            </lightning-progress-indicator>
+            <div class="slds-modal__content slds-p-around_medium">
+                <!--showing 3 screens based on progress indicator steps-->
+                <div if:true={searchSupplier} style="color:red" >
+                    <p>Hello i am the Step 1</p>
+                </div>
+                <div if:true={selectOffers} style="color:green">
+                    Hello i am the Step 2
+                </div>
+                <div if:true={selectSalesPrice} style="color:blue" >
+                    Hello i am the Step 3
+                </div>
+            </div>
+            <div class="slds-m-vertical_medium">
+                <lightning-button label="Back" class="slds-m-left_x-small" onclick={handlePrev}></lightning-button>
+                <template if:false={selectSalesPrice}>
+                    <lightning-button variant="brand" class="slds-m-left_x-small" label="Next" onclick={handleNext}></lightning-button>
+                </template>
+                <template if:true={selectSalesPrice}>
+                    <lightning-button variant="brand" class="slds-m-left_x-small" label="Finish" onclick={handleFinish}></lightning-button>
+                </template>
+            </div>
+        
+    </div>
+</template>

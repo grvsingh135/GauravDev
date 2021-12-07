@@ -1,0 +1,28 @@
+<template>
+   
+    <lightning-card title="Create Account" icon-name="custom:custom56">
+        <table>
+         
+              <thead>
+                  <th>Serial No</th>
+                  <th>Name</th>
+              </thead>
+            <template if:true={contacts.data}>
+                    <template for:each={contacts.data} for:item="contact" for:index="index">
+                           <tr key={contact.Id}>
+                               <td>
+                                    {index}
+                               </td>
+                               <td>
+                                    {contact.Name} - {contact.Title}
+                               </td>
+                           </tr>
+                          
+                  </template>
+            </template>
+        </table>
+        <lightning-input label="First Name" value={Account.firstName}></lightning-input>
+        <lightning-input label="Last Name" value={Account.lastName} ></lightning-input>
+        <lightning-button label="Save" onclick={CreateAccount}></lightning-button>
+    </lightning-card>   
+</template>

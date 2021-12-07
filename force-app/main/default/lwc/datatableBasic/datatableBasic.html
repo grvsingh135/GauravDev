@@ -1,0 +1,12 @@
+<template>
+    <h1>Example of basic data table </h1>
+        <div class="slds-p-around_medium lgc-bg" style="height: 300px;">
+        <lightning-datatable
+        key-field ="Id"
+        data ={contacts.data}
+        columns = {columns}
+        onrowaction={handleRowAction}>
+        </lightning-datatable>
+        </div>
+       
+</template>

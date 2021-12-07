@@ -1,0 +1,6 @@
+<template>
+    <h1>Dynamic row add and delete examle {arrayObject} {check}</h1>
+    <template  for:each={arrayObject} for:item="eachItem" for:index="index">
+        <c-add-dynamic-row onaddrow={addNewRow} ondeleterow={deleteRow} key={eachItem} serial-number={index}></c-add-dynamic-row>
+    </template>
+</template>

@@ -1,0 +1,17 @@
+<!-- eventWithData.html -->
+<template>
+        <lightning-input label="Name" value={myContact.Name} name = "Name" onchange={handleContactChange}></lightning-input>
+        <lightning-input label="Address" value={myContact.Address} name ='Address' onchange={handleContactChange}></lightning-input>
+        <lightning-input label="Home Address" value={myContact.HomeAddres} name='HomeAddres' onchange={handleContactChange}></lightning-input>
+        <input type="button" title="Convert" name="Convert" value="Convert" onclick={save}/>
+        <div>
+         <!-- <c-multi-Lookup object-name="Account" field-name="Name" icon-name = "standard:account"   onselected={selectedRecords}></c-multi-Lookup> -->
+       </div>  
+           <div>
+            <c-custom-Lookup iconname="standard:campaign" object-name="Campaign" searchfield="Name"></c-custom-Lookup>
+           
+          </div>
+          <div>
+            <c-l-W-C-Progress-Indicator></c-l-W-C-Progress-Indicator>
+          </div>
+</template>

@@ -1,0 +1,19 @@
+<template>
+    <div>
+
+        {recordId}
+        <template for:each={opp} for:item="opportunity">
+            <p key={opportunity.Id}>{opportunity.Name}</p>
+        </template>
+    </div>
+<h1><b>LDS with view and Edit </b></h1>
+
+        <lightning-record-form
+            record-id={recordId}
+            object-api-name="Opportunity"
+            layout-type="Compact"
+            mode="view">
+        </lightning-record-form>
+   
+
+</template>
